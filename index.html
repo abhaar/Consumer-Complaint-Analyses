@@ -74,10 +74,10 @@
 <li>
 <strong>Classification</strong><br>
 <em>Note: Ensure Hadoop 2.5.1, Maven are installed. Mandatory for build</em><br>
-  $ git clone <a href="https://github.com/Sapphirine/Customer-Complaint-Analyses.git">https://github.com/Sapphirine/Customer-Complaint-Analyses.git</a>
-  $ cd Customer-Complaint-Analyses/PROJECT_CODE/
-  $ mvn clean install
-  $ hadoop jar target/Classification-Files-Big-Data-Project-1.0.jar com.bigdata.complaintanalysis.ClassificationAutomator data/Consumer_Complaints.csv
+  $ git clone <a href="https://github.com/Sapphirine/Customer-Complaint-Analyses.git">https://github.com/Sapphirine/Customer-Complaint-Analyses.git</a><br>
+  $ cd Customer-Complaint-Analyses/PROJECT_CODE/<br>
+  $ mvn clean install<br>
+  $ hadoop jar target/Classification-Files-Big-Data-Project-1.0.jar com.bigdata.complaintanalysis.ClassificationAutomator data/Consumer_Complaints.csv<br>
 Sequence files will be stored in HDFS under classification directory<br>
   $ hdfs dfs -ls data/classification/$state_name</li>
 </ul>
