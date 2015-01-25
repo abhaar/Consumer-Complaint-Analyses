@@ -71,7 +71,7 @@
 <a id="compilation-instructions" class="anchor" href="#compilation-instructions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Compilation Instructions</h2>
 
 <p><strong>Classification</strong><br>
-<em>[Note: Ensure Hadoop 2.5.1, Maven are installed. Mandatory for build]</em></p>
+<em>Note: Ensure Hadoop 2.5.1, Maven are installed. Mandatory for build</em></p>
 
 <pre><code>$ git clone https://github.com/Sapphirine/Customer-Complaint-Analyses.git
 $ cd Customer-Complaint-Analyses/PROJECT_CODE/
@@ -84,24 +84,27 @@ $ hadoop jar target/Classification-Files-Big-Data-Project-1.0.jar com.bigdata.co
 <pre><code>$ hdfs dfs -ls data/classification/$state_name
 </code></pre>
 
-<p><strong>Execute Mahout Naive Bayes Classification</strong>
-    $ MAHOUT_PATH/bin/mahout seq2sparse -i data/classifiaction/$state_name -o $state_name-vectors
-    $ MAHOUT_PATH/bin/mahout split -i $state_name-vectors/tfidf-vectors --trainingOutput train-vectors --testOutput test-vect ors --randomSelectionPct 40 --overwrite --sequenceFiles -xm sequential
-    $ MAHOUT_PATH/bin/mahout trainnb -i train-vectors -el -li labelindex -o model -ow -c
-    $ MAHOUT_PATH/bin/mahout testnb -i train-vectors -m model -l labelindex -ow -o $state_name-testing -c
-    $ MAHOUT_PATH/bin/mahout  testnb -i test-vectors -m model -l labelindex -ow -o $state_name-testing -c
-View the Confusion Matrix</p>
+<p><strong>Execute Mahout Naive Bayes Classification</strong></p>
+
+<pre><code>$ MAHOUT_PATH/bin/mahout seq2sparse -i data/classifiaction/$state_name -o $state_name-vectors
+$ MAHOUT_PATH/bin/mahout split -i $state_name-vectors/tfidf-vectors --trainingOutput train-vectors --testOutput test-vect ors --randomSelectionPct 40 --overwrite --sequenceFiles -xm sequential
+$ MAHOUT_PATH/bin/mahout trainnb -i train-vectors -el -li labelindex -o model -ow -c
+$ MAHOUT_PATH/bin/mahout testnb -i train-vectors -m model -l labelindex -ow -o $state_name-testing -c
+$ MAHOUT_PATH/bin/mahout  testnb -i test-vectors -m model -l labelindex -ow -o $state_name-testing -c
+</code></pre>
+
+<p>View the Confusion Matrix</p>
 
 <p><strong>Performance Metric Analysis</strong>
-<em>[NOTE: Please download the required CsvReader jar file from the following link</em>
-<em><a href="http://javacsv.sourceforge.net/com/csvreader/CsvReader.html">http://javacsv.sourceforge.net/com/csvreader/CsvReader.html</a></em>
-    $ cd Customer-Complaint-Analyses/
-    $ javac -cp /path/to/jar ProblemClustering.java
-    $ java -cp /path/to/jar ProblemClustering</p>
+<em>NOTE: Please download the required CsvReader jar file from the following link</em>
+<em><a href="http://javacsv.sourceforge.net/com/csvreader/CsvReader.html">http://javacsv.sourceforge.net/com/csvreader/CsvReader.html</a></em></p>
 
-<h3>
-<a id="data-analysis-using-hive-click-here" class="anchor" href="#data-analysis-using-hive-click-here" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Analysis using Hive <a href="http://sites.google.com/site/abhaarbigdataanalytics/">Click Here!</a>
-</h3>
+<pre><code>$ cd Customer-Complaint-Analyses/
+$ javac -cp /path/to/jar ProblemClustering.java
+$ java -cp /path/to/jar ProblemClustering
+</code></pre>
+
+<p><strong>Data Analysis using Hive <a href="http://sites.google.com/site/abhaarbigdataanalytics/">Click Here!</a></strong></p>
 
 <h2>
 <a id="future-work" class="anchor" href="#future-work" aria-hidden="true"><span class="octicon octicon-link"></span></a>Future Work</h2>
@@ -116,10 +119,10 @@ View the Confusion Matrix</p>
 
 <p>Feel free to shoot the authors an email at the following email IDs:</p>
 
-<p>Avinash Sridhar (<a href="mailto:as4626@columbia.edu">as4626@columbia.edu</a>)
-Abhaar Gupta (<a href="mailto:ag3468@columbia.edu">ag3468@columbia.edu</a>)
-Nachiket Rau (<a href="mailto:nnr2107@columbia.edu">nnr2107@columbia.edu</a>)
-Sankalp Singayapally (<a href="mailto:ss4728@columbia.edu">ss4728@columbia.edu</a>)</p>
+<p>Avinash Sridhar (<a href="mailto:as4626@columbia.edu">as4626@columbia.edu</a>)<br>
+Abhaar Gupta (<a href="mailto:ag3468@columbia.edu">ag3468@columbia.edu</a>)<br>
+Nachiket Rau (<a href="mailto:nnr2107@columbia.edu">nnr2107@columbia.edu</a>)<br>
+Sankalp Singayapally (<a href="mailto:ss4728@columbia.edu">ss4728@columbia.edu</a>)  </p>
       </section>
     </div>
 
