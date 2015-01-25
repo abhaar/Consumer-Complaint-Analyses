@@ -70,7 +70,7 @@
 <h2>
 <a id="compilation-instructions" class="anchor" href="#compilation-instructions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Compilation Instructions</h2>
 
-<p><strong>Classification</strong><br>
+<p><strong>1. Classification</strong><br>
 <em>Note: Ensure Hadoop 2.5.1, Maven are installed. Mandatory for build</em></p>
 
 <pre><code>$ git clone https://github.com/Sapphirine/Customer-Complaint-Analyses.git
@@ -84,7 +84,7 @@ $ hadoop jar target/Classification-Files-Big-Data-Project-1.0.jar com.bigdata.co
 <pre><code>$ hdfs dfs -ls data/classification/$state_name
 </code></pre>
 
-<p><strong>Execute Mahout Naive Bayes Classification</strong></p>
+<p><strong>2. Execute Mahout Naive Bayes Classification</strong></p>
 
 <pre><code>$ MAHOUT_PATH/bin/mahout seq2sparse -i data/classifiaction/$state_name -o $state_name-vectors
 $ MAHOUT_PATH/bin/mahout split -i $state_name-vectors/tfidf-vectors --trainingOutput train-vectors --testOutput test-vect ors --randomSelectionPct 40 --overwrite --sequenceFiles -xm sequential
@@ -95,8 +95,8 @@ $ MAHOUT_PATH/bin/mahout  testnb -i test-vectors -m model -l labelindex -ow -o $
 
 <p>View the Confusion Matrix</p>
 
-<p><strong>Performance Metric Analysis</strong>
-<em>NOTE: Please download the required CsvReader jar file from the following link</em>
+<p><strong>3. Performance Metric Analysis</strong><br>
+<em>NOTE: Please download the required CsvReader jar file from the following link</em><br>
 <em><a href="http://javacsv.sourceforge.net/com/csvreader/CsvReader.html">http://javacsv.sourceforge.net/com/csvreader/CsvReader.html</a></em></p>
 
 <pre><code>$ cd Customer-Complaint-Analyses/
@@ -104,14 +104,14 @@ $ javac -cp /path/to/jar ProblemClustering.java
 $ java -cp /path/to/jar ProblemClustering
 </code></pre>
 
-<p><strong>Data Analysis using Hive <a href="http://sites.google.com/site/abhaarbigdataanalytics/">Click Here!</a></strong></p>
+<p><strong>4. Data Analysis using Hive <a href="http://sites.google.com/site/abhaarbigdataanalytics/">Click Here!</a></strong></p>
 
 <h2>
 <a id="future-work" class="anchor" href="#future-work" aria-hidden="true"><span class="octicon octicon-link"></span></a>Future Work</h2>
 
-<p><strong>Resolution Methodology Recommender</strong>
-<em>Build a recommender engine that can derive the best “first response” for a complaint
-*More rigorous data analysis and research into complaint resolution methodologies required
+<p><strong>Resolution Methodology Recommender</strong><br>
+<em>Build a recommender engine that can derive the best “first response” for a complaint<br>
+*More rigorous data analysis and research into complaint resolution methodologies required<br>
 *</em>Quantitatively gauge impact of various classes of complaints on various products to gain insights into customer outlook towards a specific product**</p>
 
 <h2>
