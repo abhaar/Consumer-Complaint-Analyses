@@ -74,14 +74,15 @@
 <li><strong>Classification</strong></li>
 </ul>
 
-<p><code>$ git clone https://github.com/Sapphirine/Customer-Complaint-Analyses.git  
-$ cd Customer-Complaint-Analyses/PROJECT_CODE/  
-$ mvn clean install  
-$ hadoop jar target/Classification-Files-Big-Data-Project-1.0.jar com.bigdata.complaintanalysis.ClassificationAutomator data/Consumer_Complaints.csv</code></p>
+<p><code>$ git clone https://github.com/Sapphirine/Customer-Complaint-Analyses.git</code><br>
+<code>$ cd Customer-Complaint-Analyses/PROJECT_CODE/</code><br>
+<code>$ mvn clean install</code><br>
+<code>$ hadoop jar target/Classification-Files-Big-Data-Project-1.0.jar com.bigdata.complaintanalysis.ClassificationAutomator data/Consumer_Complaints.csv</code>  </p>
 
-<p><em>Note: Ensure Hadoop 2.5.1, Maven are installed. Mandatory for build</em>
-Sequence files will be stored in HDFS under classification directory
-<code>$ hdfs dfs -ls data/classification/$state_name</code></p>
+<p><em>Note: Ensure Hadoop 2.5.1, Maven are installed. Mandatory for build</em><br>
+Sequence files will be stored in HDFS under classification directory  </p>
+
+<p><code>$ hdfs dfs -ls data/classification/$state_name</code></p>
 
 <p><strong>Execute Mahout Naive Bayes Classification</strong></p>
 
