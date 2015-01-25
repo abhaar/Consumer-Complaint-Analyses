@@ -71,6 +71,16 @@
 <a id="compilation-instructions" class="anchor" href="#compilation-instructions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Compilation Instructions</h2>
 
 <ul>
+<li>
+<p>** Classification**</p>
+
+<p>$ git clone <a href="https://github.com/Sapphirine/Customer-Complaint-Analyses.git">https://github.com/Sapphirine/Customer-Complaint-Analyses.git</a>
+$ cd Customer-Complaint-Analyses/PROJECT_CODE/
+$ mvn clean install
+$ hadoop jar target/Classification-Files-Big-Data-Project-1.0.jar com.bigdata.complaintanalysis.ClassificationAutomator data/Consumer_Complaints.csv
+<em>Note: Ensure Hadoop 2.5.1, Maven are installed. Mandatory for build</em><br>
+Sequence files will be stored in HDFS under classification directory  </p>
+</li>
 <li><strong>Classification</strong></li>
 </ul>
 
@@ -95,18 +105,17 @@ $ MAHOUT_PATH/bin/mahout  testnb -i test-vectors -m model -l labelindex -ow -o $
 
 <p>View the Confusion Matrix</p>
 
+<ul>
+<li>
 <p><strong>Performance Metric Analysis</strong></p>
 
-<pre><code>$ cd Customer-Complaint-Analyses/
+<p>$ cd Customer-Complaint-Analyses/
 $ javac -cp /path/to/jar ProblemClustering.java
 $ java -cp /path/to/jar ProblemClustering
-</code></pre>
-
-<p><em>Note: Please download the required CsvReader jar file from the following link</em><br>
+<em>Note: Please download the required CsvReader jar file from the following link</em><br>
 <em><a href="http://javacsv.sourceforge.net/com/csvreader/CsvReader.html">http://javacsv.sourceforge.net/com/csvreader/CsvReader.html</a></em>  </p>
-
-<ul>
-<li><strong>Data Analysis using Hive <a href="http://sites.google.com/site/abhaarbigdataanalytics/">Click Here!</a></strong></li>
+</li>
+<li><p><strong>Data Analysis using Hive <a href="http://sites.google.com/site/abhaarbigdataanalytics/">Click Here!</a></strong></p></li>
 </ul>
 
 <h2>
