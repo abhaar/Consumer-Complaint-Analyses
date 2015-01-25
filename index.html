@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <meta name="description" content="Consumer Complaint Analyses : Big Data Analytics - EECS E6893 Final Project (Fall 2014)">
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Consumer Complaint Analyses by abhaar</title>
+    <title>Consumer Complaint Analyses</title>
   </head>
 
   <body>
-    <header>
-      <div class="inner">
-        <h1>Consumer Complaint Analyses</h1>
-        <h2>Big Data Analytics - EECS E6893 Final Project (Fall 2014)</h2>
-        <a href="https://github.com/abhaar/Consumer-Complaint-Analyses" class="button"><small>View project on</small> GitHub</a>
-      </div>
-    </header>
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h2>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/abhaar/Consumer-Complaint-Analyses">View on GitHub</a>
+
+          <h1 id="project_title">Consumer Complaint Analyses</h1>
+          <h2 id="project_tagline">Big Data Analytics - EECS E6893 Final Project (Fall 2014)</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/abhaar/Consumer-Complaint-Analyses/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/abhaar/Consumer-Complaint-Analyses/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>
 <a id="abstract" class="anchor" href="#abstract" aria-hidden="true"><span class="octicon octicon-link"></span></a>Abstract</h2>
 
 <p>Retail banking is heavily dependent on customer satisfaction and the ability with which a financial institution can address customer complaints and issues. We aim to provide an insight into the various facets of customer complaints in an attempt to help highlight the most significant issues plaguing the industry and move on to providing a quantitative metric that will help financial institutions determine the severity of a complaint. To this end, we provide a software package that is tailor made to the publicly available dataset from the Consumer Finance Bureau which will provide various details including but not limited to the most troublesome products, the problems plaguing a specific state and the like. We move on to discussing the analysis and also how this can be improved through the availability of more comprehensive data, perhaps something that financial institutions themselves record.</p>
@@ -67,40 +70,30 @@
 <h2>
 <a id="compilation-instructions" class="anchor" href="#compilation-instructions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Compilation Instructions</h2>
 
-<h3>
-<a id="classification-note-ensure-hadoop-251-maven-are-installed-mandatory-for-build" class="anchor" href="#classification-note-ensure-hadoop-251-maven-are-installed-mandatory-for-build" aria-hidden="true"><span class="octicon octicon-link"></span></a>Classification [Note: Ensure Hadoop 2.5.1, Maven are installed. Mandatory for build]</h3>
-
-<pre><code>$ git clone https://github.com/Sapphirine/Customer-Complaint-Analyses.git
-$ cd Customer-Complaint-Analyses/PROJECT_CODE/
-$ mvn clean install
-$ hadoop jar target/Classification-Files-Big-Data-Project-1.0.jar com.bigdata.complaintanalysis.ClassificationAutomator data/Consumer_Complaints.csv
-</code></pre>
-
-<p>Sequenced files will be stored in HDFS under classification directory</p>
+<p>****Classification 
+__[Note: Ensure Hadoop 2.5.1, Maven are installed. Mandatory for build]
+    $ git clone <a href="https://github.com/Sapphirine/Customer-Complaint-Analyses.git">https://github.com/Sapphirine/Customer-Complaint-Analyses.git</a>
+    $ cd Customer-Complaint-Analyses/PROJECT_CODE/
+    $ mvn clean install
+    $ hadoop jar target/Classification-Files-Big-Data-Project-1.0.jar com.bigdata.complaintanalysis.ClassificationAutomator data/Consumer_Complaints.csv
+Sequence files will be stored in HDFS under classification directory</p>
 
 <pre><code>$ hdfs dfs -ls data/classification/$state_name
 </code></pre>
 
-<h3>
-<a id="execute-mahout-naive-bayes-classification" class="anchor" href="#execute-mahout-naive-bayes-classification" aria-hidden="true"><span class="octicon octicon-link"></span></a>Execute Mahout Naive Bayes Classification</h3>
+<p>****Execute Mahout Naive Bayes Classification
+    $ MAHOUT_PATH/bin/mahout seq2sparse -i data/classifiaction/$state_name -o $state_name-vectors
+    $ MAHOUT_PATH/bin/mahout split -i $state_name-vectors/tfidf-vectors --trainingOutput train-vectors --testOutput test-vect ors --randomSelectionPct 40 --overwrite --sequenceFiles -xm sequential
+    $ MAHOUT_PATH/bin/mahout trainnb -i train-vectors -el -li labelindex -o model -ow -c
+    $ MAHOUT_PATH/bin/mahout testnb -i train-vectors -m model -l labelindex -ow -o $state_name-testing -c
+    $ MAHOUT_PATH/bin/mahout  testnb -i test-vectors -m model -l labelindex -ow -o $state_name-testing -c
+View the Confusion Matrix</p>
 
-<pre><code>$ MAHOUT_PATH/bin/mahout seq2sparse -i data/classifiaction/$state_name -o $state_name-vectors
-$ MAHOUT_PATH/bin/mahout split -i $state_name-vectors/tfidf-vectors --trainingOutput train-vectors --testOutput test-vect ors --randomSelectionPct 40 --overwrite --sequenceFiles -xm sequential
-$ MAHOUT_PATH/bin/mahout trainnb -i train-vectors -el -li labelindex -o model -ow -c
-$ MAHOUT_PATH/bin/mahout testnb -i train-vectors -m model -l labelindex -ow -o $state_name-testing -c
-$ MAHOUT_PATH/bin/mahout  testnb -i test-vectors -m model -l labelindex -ow -o $state_name-testing -c
-</code></pre>
-
-<p>View the Confusion Matrix</p>
-
-<h3>
-<a id="performance-metric-analysis-note-please-download-the-required-csvreader-jar-file-from-the-following-link-httpjavacsvsourceforgenetcomcsvreadercsvreaderhtml" class="anchor" href="#performance-metric-analysis-note-please-download-the-required-csvreader-jar-file-from-the-following-link-httpjavacsvsourceforgenetcomcsvreadercsvreaderhtml" aria-hidden="true"><span class="octicon octicon-link"></span></a>Performance Metric Analysis [NOTE: Please download the required CsvReader jar file from the following link <a href="http://javacsv.sourceforge.net/com/csvreader/CsvReader.html">http://javacsv.sourceforge.net/com/csvreader/CsvReader.html</a>
-</h3>
-
-<pre><code>$ cd Customer-Complaint-Analyses/
-$ javac -cp /path/to/jar ProblemClustering.java
-$ java -cp /path/to/jar ProblemClustering
-</code></pre>
+<p>****Performance Metric Analysis 
+__[NOTE: Please download the required CsvReader jar file from the following link __<a href="http://javacsv.sourceforge.net/com/csvreader/CsvReader.html">http://javacsv.sourceforge.net/com/csvreader/CsvReader.html</a>
+    $ cd Customer-Complaint-Analyses/
+    $ javac -cp /path/to/jar ProblemClustering.java
+    $ java -cp /path/to/jar ProblemClustering</p>
 
 <h3>
 <a id="data-analysis-using-hive-click-here" class="anchor" href="#data-analysis-using-hive-click-here" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Analysis using Hive <a href="http://sites.google.com/site/abhaarbigdataanalytics/">Click Here!</a>
@@ -109,16 +102,11 @@ $ java -cp /path/to/jar ProblemClustering
 <h2>
 <a id="future-work" class="anchor" href="#future-work" aria-hidden="true"><span class="octicon octicon-link"></span></a>Future Work</h2>
 
-<h3>
-<a id="resolution-methodology-recommender" class="anchor" href="#resolution-methodology-recommender" aria-hidden="true"><span class="octicon octicon-link"></span></a>Resolution Methodology Recommender</h3>
-
-<p>*Build a recommender engine that can derive the best “first response” for a complaint
-*More rigorous data analysis and research into complaint resolution methodologies required</p>
-
-<h3>
-<a id="quantitatively-gauge-impact-of-various-classes-of-complaints-on-various-products-to-gain-insights-into-customer-outlook-towards-a-specific-product" class="anchor" href="#quantitatively-gauge-impact-of-various-classes-of-complaints-on-various-products-to-gain-insights-into-customer-outlook-towards-a-specific-product" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quantitatively gauge impact of various classes of complaints on various products to gain insights into customer outlook towards a specific product</h3>
-
-<p>Contact Us</p>
+<p>*<strong><em>Resolution Methodology Recommender
+*Build a recommender engine that can derive the best “first response” for a complaint
+*More rigorous data analysis and research into complaint resolution methodologies required
+*</em></strong>Quantitatively gauge impact of various classes of complaints on various products to gain insights into customer outlook towards a specific product
+Contact Us</p>
 
 <p>Feel free to shoot the authors an email at the following email IDs:</p>
 
@@ -126,25 +114,18 @@ $ java -cp /path/to/jar ProblemClustering
 Abhaar Gupta (<a href="mailto:ag3468@columbia.edu">ag3468@columbia.edu</a>)
 Nachiket Rau (<a href="mailto:nnr2107@columbia.edu">nnr2107@columbia.edu</a>)
 Sankalp Singayapally (<a href="mailto:ss4728@columbia.edu">ss4728@columbia.edu</a>)</p>
-        </section>
-
-        <aside id="sidebar">
-          <a href="https://github.com/abhaar/Consumer-Complaint-Analyses/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/abhaar/Consumer-Complaint-Analyses/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
-
-          <p class="repo-owner"><a href="https://github.com/abhaar/Consumer-Complaint-Analyses"></a> is maintained by <a href="https://github.com/abhaar">abhaar</a>.</p>
-
-          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
+      </section>
     </div>
 
-  
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Consumer Complaint Analyses maintained by <a href="https://github.com/abhaar">abhaar</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
   </body>
 </html>
