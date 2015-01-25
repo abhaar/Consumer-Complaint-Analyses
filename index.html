@@ -107,13 +107,13 @@ $ java -cp /path/to/jar ProblemClustering</p>
 </li>
 </ul>
 
-<p><strong>Performance Metric Analysis</strong></p>
+<p><strong>Performance Metric Analysis</strong>
+<em>Note: Please download the required CsvReader jar file from the following link</em><br>
+<em><a href="http://javacsv.sourceforge.net/com/csvreader/CsvReader.html">http://javacsv.sourceforge.net/com/csvreader/CsvReader.html</a></em></p>
 
 <pre><code>$ cd Customer-Complaint-Analyses/
 $ javac -cp /path/to/jar ProblemClustering.java
 $ java -cp /path/to/jar ProblemClustering
-$ MAHOUT_PATH/bin/mahout testnb -i train-vectors -m model -l labelindex -ow -o $state_name-testing -c
-$ MAHOUT_PATH/bin/mahout  testnb -i test-vectors -m model -l labelindex -ow -o $state_name-testing -c
 </code></pre>
 
 <p>View the Confusion Matrix</p>
