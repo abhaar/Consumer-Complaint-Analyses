@@ -70,27 +70,16 @@
 <h2>
 <a id="compilation-instructions" class="anchor" href="#compilation-instructions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Compilation Instructions</h2>
 
-<ul>
-<li>
-<p>** Classification**</p>
+<p><strong>Classification</strong></p>
 
-<p>$ git clone <a href="https://github.com/Sapphirine/Customer-Complaint-Analyses.git">https://github.com/Sapphirine/Customer-Complaint-Analyses.git</a>
+<pre><code>$ git clone https://github.com/Sapphirine/Customer-Complaint-Analyses.git
 $ cd Customer-Complaint-Analyses/PROJECT_CODE/
 $ mvn clean install
 $ hadoop jar target/Classification-Files-Big-Data-Project-1.0.jar com.bigdata.complaintanalysis.ClassificationAutomator data/Consumer_Complaints.csv
-<em>Note: Ensure Hadoop 2.5.1, Maven are installed. Mandatory for build</em><br>
-Sequence files will be stored in HDFS under classification directory  </p>
-</li>
-<li><strong>Classification</strong></li>
-</ul>
-
-<p><code>$ git clone https://github.com/Sapphirine/Customer-Complaint-Analyses.git</code><br>
-<code>$ cd Customer-Complaint-Analyses/PROJECT_CODE/</code><br>
-<code>$ mvn clean install</code><br>
-<code>$ hadoop jar target/Classification-Files-Big-Data-Project-1.0.jar com.bigdata.complaintanalysis.ClassificationAutomator data/Consumer_Complaints.csv</code>  </p>
+</code></pre>
 
 <p><em>Note: Ensure Hadoop 2.5.1, Maven are installed. Mandatory for build</em><br>
-Sequence files will be stored in HDFS under classification directory  </p>
+Sequence files will be stored in HDFS under classification directory    </p>
 
 <p><code>$ hdfs dfs -ls data/classification/$state_name</code></p>
 
@@ -105,17 +94,18 @@ $ MAHOUT_PATH/bin/mahout  testnb -i test-vectors -m model -l labelindex -ow -o $
 
 <p>View the Confusion Matrix</p>
 
-<ul>
-<li>
 <p><strong>Performance Metric Analysis</strong></p>
 
-<p>$ cd Customer-Complaint-Analyses/
+<pre><code>$ cd Customer-Complaint-Analyses/
 $ javac -cp /path/to/jar ProblemClustering.java
 $ java -cp /path/to/jar ProblemClustering
-<em>Note: Please download the required CsvReader jar file from the following link</em><br>
+</code></pre>
+
+<p><em>Note: Please download the required CsvReader jar file from the following link</em><br>
 <em><a href="http://javacsv.sourceforge.net/com/csvreader/CsvReader.html">http://javacsv.sourceforge.net/com/csvreader/CsvReader.html</a></em>  </p>
-</li>
-<li><p><strong>Data Analysis using Hive <a href="http://sites.google.com/site/abhaarbigdataanalytics/">Click Here!</a></strong></p></li>
+
+<ul>
+<li><strong>Data Analysis using Hive <a href="http://sites.google.com/site/abhaarbigdataanalytics/">Click Here!</a></strong></li>
 </ul>
 
 <h2>
