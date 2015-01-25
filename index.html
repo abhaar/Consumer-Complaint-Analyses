@@ -70,13 +70,16 @@
 <h2>
 <a id="compilation-instructions" class="anchor" href="#compilation-instructions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Compilation Instructions</h2>
 
-<p>*<em>Classification *</em>
-<em>[Note: Ensure Hadoop 2.5.1, Maven are installed. Mandatory for build]</em>
-    $ git clone <a href="https://github.com/Sapphirine/Customer-Complaint-Analyses.git">https://github.com/Sapphirine/Customer-Complaint-Analyses.git</a>
-    $ cd Customer-Complaint-Analyses/PROJECT_CODE/
-    $ mvn clean install
-    $ hadoop jar target/Classification-Files-Big-Data-Project-1.0.jar com.bigdata.complaintanalysis.ClassificationAutomator data/Consumer_Complaints.csv
-Sequence files will be stored in HDFS under classification directory</p>
+<p><strong>Classification</strong><br>
+<em>[Note: Ensure Hadoop 2.5.1, Maven are installed. Mandatory for build]</em></p>
+
+<pre><code>$ git clone https://github.com/Sapphirine/Customer-Complaint-Analyses.git
+$ cd Customer-Complaint-Analyses/PROJECT_CODE/
+$ mvn clean install
+$ hadoop jar target/Classification-Files-Big-Data-Project-1.0.jar com.bigdata.complaintanalysis.ClassificationAutomator data/Consumer_Complaints.csv
+</code></pre>
+
+<p>Sequence files will be stored in HDFS under classification directory</p>
 
 <pre><code>$ hdfs dfs -ls data/classification/$state_name
 </code></pre>
