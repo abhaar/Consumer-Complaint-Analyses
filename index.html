@@ -72,14 +72,16 @@
 
 <ul>
 <li>
-<strong>Classification</strong><br>
-<em>Note: Ensure Hadoop 2.5.1, Maven are installed. Mandatory for build</em><br>
-  $ git clone <a href="https://github.com/Sapphirine/Customer-Complaint-Analyses.git">https://github.com/Sapphirine/Customer-Complaint-Analyses.git</a><br>
-  $ cd Customer-Complaint-Analyses/PROJECT_CODE/<br>
-  $ mvn clean install<br>
-  $ hadoop jar target/Classification-Files-Big-Data-Project-1.0.jar com.bigdata.complaintanalysis.ClassificationAutomator data/Consumer_Complaints.csv<br>
+<p><strong>Classification</strong><br>
+<em>Note: Ensure Hadoop 2.5.1, Maven are installed. Mandatory for build</em></p>
+
+<p>$ git clone <a href="https://github.com/Sapphirine/Customer-Complaint-Analyses.git">https://github.com/Sapphirine/Customer-Complaint-Analyses.git</a><br>
+$ cd Customer-Complaint-Analyses/PROJECT_CODE/<br>
+$ mvn clean install<br>
+$ hadoop jar target/Classification-Files-Big-Data-Project-1.0.jar com.bigdata.complaintanalysis.ClassificationAutomator data/Consumer_Complaints.csv<br>
 Sequence files will be stored in HDFS under classification directory<br>
-  $ hdfs dfs -ls data/classification/$state_name</li>
+$ hdfs dfs -ls data/classification/$state_name</p>
+</li>
 </ul>
 
 <p><strong>Execute Mahout Naive Bayes Classification</strong></p>
@@ -100,8 +102,8 @@ $ MAHOUT_PATH/bin/mahout  testnb -i test-vectors -m model -l labelindex -ow -o $
 <em><a href="http://javacsv.sourceforge.net/com/csvreader/CsvReader.html">http://javacsv.sourceforge.net/com/csvreader/CsvReader.html</a></em></p>
 
 <p>$ cd Customer-Complaint-Analyses/
-  $ javac -cp /path/to/jar ProblemClustering.java
-  $ java -cp /path/to/jar ProblemClustering</p>
+$ javac -cp /path/to/jar ProblemClustering.java
+$ java -cp /path/to/jar ProblemClustering</p>
 </li>
 <li><p><strong>Data Analysis using Hive <a href="http://sites.google.com/site/abhaarbigdataanalytics/">Click Here!</a></strong></p></li>
 </ul>
